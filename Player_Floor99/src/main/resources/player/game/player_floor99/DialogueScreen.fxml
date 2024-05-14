@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" stylesheets="@DuneStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="player.game.player_floor99.DialogueScreenController">
+   <children>
+      <Pane prefHeight="342.0" prefWidth="640.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+         <children>
+            <Button fx:id="exitDSC" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" stylesheets="@DuneStyles.css" text="Back" />
+            <GridPane fx:id="choiceBox" layoutX="210.0" layoutY="84.0" prefHeight="201.0" prefWidth="221.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="choice1" mnemonicParsing="false" />
+                  <Button fx:id="choice2" mnemonicParsing="false" GridPane.rowIndex="1" />
+                  <Button fx:id="choice3" mnemonicParsing="false" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+      <GridPane prefHeight="26.0" prefWidth="628.0" VBox.vgrow="ALWAYS">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="551.0" minWidth="10.0" prefWidth="170.0" />
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="410.0" minWidth="10.0" prefWidth="368.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="410.0" minWidth="9.0" prefWidth="16.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints />
+            <RowConstraints />
+        </rowConstraints>
+         <children>
+            <Button mnemonicParsing="false" prefWidth="29.0" stylesheets="@DuneStyles.css" text="&gt;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
+            </Button>
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" stylesheets="@DuneStyles.css" text="&lt;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin>
+            </Button>
+            <Label fx:id="characterNameLabel" text="Character Name" textFill="WHITE" GridPane.rowIndex="1">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin>
+            </Label>
+         </children>
+      </GridPane>
+      <Label fx:id="characterDialogueLabel" alignment="CENTER" prefHeight="182.0" prefWidth="620.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-text-alignment: center;" text="Character Dialogue" textFill="WHITE" VBox.vgrow="ALWAYS">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </Label>
+   </children>
+</VBox>
