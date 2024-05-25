@@ -16,7 +16,7 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("TitleScreen.fxml"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("DuneStyles.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("PF99Styles.css").toExternalForm());
         stage.setTitle("PLAYER FLOOR 99");
         stage.setScene(scene);
         stage.show();

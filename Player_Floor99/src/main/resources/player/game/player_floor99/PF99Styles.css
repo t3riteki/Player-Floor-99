@@ -1,0 +1,76 @@
+/*---------Custom Assets---------*/
+
+.root{
+    -fx-font-family:"Blue Screen Personal Use Regular";
+}
+
+/*---------Title Screen----------*/
+
+#titleButton1{
+    -fx-background-color: transparent;
+    -fx-border-radius: 5;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+}
+
+#titleButton1:hover {
+    -fx-background-color: grey;
+    -fx-border-color: #b49dcb;
+}
+
+#titleButton2{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+#titleLabel{
+    -fx-border-color: white;
+    -fx-border-radius: 15;
+}
+
+/*---------Dialogue Screen----------*/
+
+#background{
+    /*-fx-background-image: url('DuneBackground.jpg');*/
+    -fx-background-color: radial-gradient(radius 1000%, black, white);
+}
+
+#choice1, #choice2, #choice3, #exitDSC{
+    -fx-background-color: transparent;
+    -fx-border-radius: 5;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+}
+
+#choice1:hover, #choice2:hover, #choice3:hover, #exitDSC:hover{
+    -fx-background-color: grey;
+    -fx-border-color: #b49dcb;
+}
+
+/*--------Battle Screen---------*/
+
+#atkButton,#defButton,#sklButton,#fleeButton{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-border-radius: 5;
+    -fx-border-color: white ;
+}
+
+#atkButton:hover,#defButton:hover,#sklButton:hover,#fleeButton:hover{
+    -fx-background-color: grey;
+    -fx-border-color: #b49dcb;
+}
+
+#actionBar,#protagStatus,#enmyStatus{
+    -fx-border-color: white;
+}
+
+#btlDiagLabel,#protagHPLabel,#protagManaLabel,#enmyHPLabel,#enmyManaLabel{
+    -fx-background-color: transparent;
+    -fx-border-radius: 5;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+}
+#protagNameLabel,#enmyNameLabel{
+    -fx-text-fill: white;
+}

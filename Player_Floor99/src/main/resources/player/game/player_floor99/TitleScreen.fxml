@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:id="background" alignment="CENTER" prefHeight="480.0" prefWidth="640.0" stylesheets="@DuneStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="player.game.player_floor99.TitleScreenController">
+<GridPane fx:id="background" alignment="CENTER" prefHeight="480.0" prefWidth="640.0" stylesheets="@PF99Styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="player.game.player_floor99.TitleScreenController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="370.66668701171875" minWidth="10.0" prefWidth="50.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="424.6666666666667" minWidth="10.0" prefWidth="388.6666666666667" />
@@ -20,9 +20,9 @@
     <RowConstraints maxHeight="244.66665649414062" minHeight="10.0" prefHeight="173.33331298828122" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <VBox fx:id="bakcground" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" stylesheets="@DuneStyles.css" GridPane.columnIndex="1">
+      <VBox fx:id="bakcground" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" stylesheets="@PF99Styles.css" GridPane.columnIndex="1">
          <children>
-            <Label fx:id="titleLabel" alignment="CENTER" prefHeight="115.0" prefWidth="423.0" stylesheets="@DuneStyles.css" text="PLAYER: Floor 99" textFill="WHITE">
+            <Label fx:id="titleLabel" alignment="CENTER" prefHeight="115.0" prefWidth="423.0" stylesheets="@PF99Styles.css" text="PLAYER: Floor 99" textFill="WHITE">
                <font>
                   <Font name="Wingdings" size="50.0" />
                </font>
@@ -32,7 +32,7 @@
             </Label>
          </children>
       </VBox>
-      <Button fx:id="titleButton2" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchDialogueScreen" prefHeight="255.0" prefWidth="425.0" stylesheets="@DuneStyles.css" text="Click to begin" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Button fx:id="titleButton2" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchDialogueScreen" prefHeight="255.0" prefWidth="425.0" stylesheets="@PF99Styles.css" text="Click to begin" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <font>
             <Font size="20.0" />
          </font>
@@ -42,7 +42,7 @@
       </Button>
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
-            <Button fx:id="titleButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#exitProgram" prefHeight="23.0" prefWidth="43.0" stylesheets="@DuneStyles.css" text="exit">
+            <Button fx:id="titleButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#exitProgram" prefHeight="23.0" prefWidth="43.0" stylesheets="@PF99Styles.css" text="exit">
                <font>
                   <Font size="10.0" />
                </font>
