@@ -32,10 +32,10 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="atkButton" mnemonicParsing="false" prefHeight="62.0" prefWidth="139.0" text="Attack" />
-                  <Button fx:id="defButton" mnemonicParsing="false" prefHeight="77.0" prefWidth="165.0" text="Defend" GridPane.columnIndex="1" />
-                  <Button fx:id="sklButton" mnemonicParsing="false" prefHeight="97.0" prefWidth="273.0" text="Skill" GridPane.rowIndex="1" />
-                  <Button fx:id="fleeButton" mnemonicParsing="false" prefHeight="77.0" prefWidth="163.0" text="Flee" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="atkButton" mnemonicParsing="false" onAction="#Attack" prefHeight="62.0" prefWidth="139.0" text="Attack" />
+                  <Button fx:id="defButton" mnemonicParsing="false" onAction="#Defend" prefHeight="77.0" prefWidth="165.0" text="Defend" GridPane.columnIndex="1" />
+                  <Button fx:id="sklButton" mnemonicParsing="false" onAction="#Skill" prefHeight="97.0" prefWidth="273.0" text="Skill" GridPane.rowIndex="1" />
+                  <Button fx:id="fleeButton" mnemonicParsing="false" onAction="#Flee" prefHeight="77.0" prefWidth="163.0" text="Flee" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <Label fx:id="btlDiagLabel" alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="152.0" prefWidth="382.0" text="Battle Dialogue" GridPane.columnIndex="1">

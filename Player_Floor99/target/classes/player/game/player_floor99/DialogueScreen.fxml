@@ -19,8 +19,8 @@
       </Pane>
       <GridPane prefHeight="60.0" prefWidth="640.0">
         <columnConstraints>
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="266.0" minWidth="10.0" prefWidth="182.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="394.0" minWidth="10.0" prefWidth="230.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="287.0" minWidth="10.0" prefWidth="285.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="394.0" minWidth="10.0" prefWidth="127.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.0" minWidth="10.0" prefWidth="228.0" />
         </columnConstraints>
         <rowConstraints>
@@ -28,10 +28,13 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="characterNameLabel" prefHeight="61.0" prefWidth="148.0" stylesheets="@PF99Styles.css" text="Character Name" textFill="WHITE" GridPane.rowIndex="1">
+            <Label fx:id="characterNameLabel" prefHeight="30.0" prefWidth="274.0" stylesheets="@PF99Styles.css" text="Character Name" textFill="WHITE" GridPane.rowIndex="1">
                <font>
                   <Font size="17.0" />
                </font>
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin>
             </Label>
             <Button fx:id="choice2" mnemonicParsing="false" onAction="#choose2" prefHeight="50.0" prefWidth="204.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <GridPane.margin>
