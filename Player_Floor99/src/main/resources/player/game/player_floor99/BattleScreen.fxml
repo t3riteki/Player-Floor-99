@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" stylesheets="@PF99Styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="player.game.player_floor99.BattleScreenController">
+<VBox fx:id="battleScreenBackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" stylesheets="@PF99Styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="player.game.player_floor99.BattleScreenController">
    <children>
       <GridPane fx:id="actionBar" prefHeight="136.0" prefWidth="603.0">
         <columnConstraints>
@@ -79,9 +79,9 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label fx:id="protagNameLabel" alignment="CENTER" prefHeight="17.0" prefWidth="318.0" text="Character Name: " />
-                        <Label fx:id="protagHPLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="323.0" text="HP: " GridPane.rowIndex="1" />
-                        <Label fx:id="protagManaLabel" alignment="CENTER" prefHeight="17.0" prefWidth="343.0" text="Mana: " GridPane.rowIndex="2" />
+                        <Label fx:id="protagNameLabel" alignment="CENTER" prefHeight="17.0" prefWidth="370.0" text="Character Name: " />
+                        <Label fx:id="protagHPLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="19.0" prefWidth="113.0" text="HP: " GridPane.rowIndex="1" />
+                        <Label fx:id="protagManaLabel" alignment="CENTER" prefHeight="19.0" prefWidth="113.0" text="Mana: " GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </children>
@@ -99,8 +99,8 @@
                     </rowConstraints>
                      <children>
                         <Label fx:id="enmyNameLabel" alignment="CENTER" prefHeight="17.0" prefWidth="362.0" text="Character Name:" />
-                        <Label fx:id="enmyHPLabel" alignment="CENTER" prefHeight="17.0" prefWidth="329.0" text="HP: " GridPane.rowIndex="1" />
-                        <Label fx:id="enmyManaLabel" alignment="CENTER" prefHeight="17.0" prefWidth="327.0" text="Mana:" GridPane.rowIndex="2" />
+                        <Label fx:id="enmyHPLabel" alignment="CENTER" prefHeight="19.0" prefWidth="112.0" text="HP: " GridPane.rowIndex="1" />
+                        <Label fx:id="enmyManaLabel" alignment="CENTER" prefHeight="19.0" prefWidth="111.0" text="Mana:" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </children>

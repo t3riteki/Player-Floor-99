@@ -1,16 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="player.game.player_floor99.TitleScreenController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+<VBox fx:id="battleScreenBackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" stylesheets="@PF99Styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="player.game.player_floor99.BattleScreenController">
+   <children>
+      <GridPane fx:id="actionBar" prefHeight="136.0" prefWidth="603.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="10.0" prefWidth="226.0" />
+          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="443.0" minWidth="10.0" prefWidth="384.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <GridPane prefHeight="117.0" prefWidth="221.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="154.0" minWidth="10.0" prefWidth="103.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="214.0" minWidth="10.0" prefWidth="103.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="atkButton" mnemonicParsing="false" prefHeight="62.0" prefWidth="139.0" text="Attack" />
+                  <Button fx:id="defButton" mnemonicParsing="false" prefHeight="77.0" prefWidth="165.0" text="Defend" GridPane.columnIndex="1" />
+                  <Button fx:id="sklButton" mnemonicParsing="false" prefHeight="97.0" prefWidth="273.0" text="Skill" GridPane.rowIndex="1" />
+                  <Button fx:id="fleeButton" mnemonicParsing="false" prefHeight="77.0" prefWidth="163.0" text="Flee" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <Label fx:id="btlDiagLabel" alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="152.0" prefWidth="382.0" text="Battle Dialogue" GridPane.columnIndex="1">
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+               <font>
+                  <Font name="Blue Screen Personal Use Regular" size="12.0" />
+               </font></Label>
+         </children>
+         <VBox.margin>
+            <Insets left="15.0" right="15.0" top="15.0" />
+         </VBox.margin>
+      </GridPane>
+      <Pane prefHeight="259.0" prefWidth="640.0">
+         <VBox.margin>
+            <Insets left="30.0" right="30.0" />
+         </VBox.margin>
+         <children>
+            <ImageView fx:id="enmyImageView" fitHeight="234.0" fitWidth="291.0" layoutX="145.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+      <GridPane prefHeight="108.0" prefWidth="620.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox prefHeight="103.0" prefWidth="310.0">
+               <children>
+                  <GridPane fx:id="protagStatus" prefHeight="143.0" prefWidth="310.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label fx:id="protagNameLabel" alignment="CENTER" prefHeight="17.0" prefWidth="370.0" text="Character Name: " />
+                        <Label fx:id="protagHPLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="19.0" prefWidth="113.0" text="HP: " GridPane.rowIndex="1" />
+                        <Label fx:id="protagManaLabel" alignment="CENTER" prefHeight="19.0" prefWidth="113.0" text="Mana: " GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+            <VBox prefHeight="107.0" prefWidth="309.0" GridPane.columnIndex="1">
+               <children>
+                  <GridPane fx:id="enmyStatus" prefHeight="141.0" prefWidth="310.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label fx:id="enmyNameLabel" alignment="CENTER" prefHeight="17.0" prefWidth="362.0" text="Character Name:" />
+                        <Label fx:id="enmyHPLabel" alignment="CENTER" prefHeight="19.0" prefWidth="112.0" text="HP: " GridPane.rowIndex="1" />
+                        <Label fx:id="enmyManaLabel" alignment="CENTER" prefHeight="19.0" prefWidth="111.0" text="Mana:" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" />
+         </VBox.margin>
+      </GridPane>
+   </children>
 </VBox>

@@ -1,0 +1,111 @@
+/*---------Custom Assets---------*/
+@font-face {
+    font-family: 'Alagard';
+    src: url('Fonts/alagard.ttf');
+}
+
+.root{
+    -fx-font-family:"Alagard";
+}
+
+/*---------Title Screen----------*/
+
+#exitButton{
+    -fx-background-color: transparent;
+    -fx-border-radius: 5;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+    -fx-font-size: 15;
+}
+
+#exitButton:hover {
+    -fx-background-color: grey;
+    -fx-border-color: #b49dcb;
+}
+
+#startButton{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 30;
+}
+
+#titleLabel{
+    -fx-border-color: white;
+    -fx-border-radius: 15;
+}
+
+#titleScreenBackground{
+    -fx-background-color: radial-gradient(radius 1000%, black, white);
+    /*-fx-background-image: url("../../../Images/");
+    -fx-background-size: 100% 70% ;
+    -fx-background-repeat: false;*/
+}
+
+
+/*---------Dialogue Screen----------*/
+
+#dialogueScreenBackground{
+    -fx-background-color: radial-gradient(radius 1000%, black, white);
+}
+
+#exitDSC, #characterDialogueLabel, #nextDialogue, #prevDialogue{
+    -fx-background-color: transparent;
+    -fx-border-radius: 5;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+}
+
+#choice1, #choice2{
+    -fx-background-color: linear-gradient(from 20% 20% to 100% 100%,black,transparent);
+    -fx-text-fill: white;
+    -fx-background-radius: 10;
+}
+
+#choice1:hover, #choice2:hover{
+    -fx-background-color: linear-gradient(from 20% 20% to 100% 100%,grey,transparent);
+}
+
+ #exitDSC:hover, #nextDialogue:hover, #prevDialogue:hover{
+     -fx-background-color: grey;
+    -fx-border-color: #b49dcb;
+}
+
+#characterNameLabel{
+    -fx-font-size: 20px;
+}
+
+#characterDialogueLabel{
+    -fx-font-size: 15px;
+}
+
+/*--------Battle Screen---------*/
+#battleScreenBackground{
+    -fx-background-color: radial-gradient(radius 1000%, black, white);
+}
+
+#atkButton,#defButton,#sklButton,#fleeButton{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-border-radius: 5;
+    -fx-border-color: white ;
+}
+
+#atkButton:hover,#defButton:hover,#sklButton:hover,#fleeButton:hover{
+    -fx-background-color: grey;
+    -fx-border-color: #b49dcb;
+}
+
+#actionBar,#protagStatus,#enmyStatus{
+    -fx-border-color: white;
+}
+
+#btlDiagLabel,#protagHPLabel,#protagManaLabel,#enmyHPLabel,#enmyManaLabel{
+    -fx-background-color: transparent;
+    -fx-border-radius: 5;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+}
+#protagNameLabel,#enmyNameLabel{
+    -fx-text-fill: white;
+    -fx-font-size: 15;
+}
