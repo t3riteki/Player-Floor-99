@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
@@ -15,6 +16,7 @@
       <Pane prefHeight="126.0" prefWidth="640.0" stylesheets="@PF99Styles.css" VBox.vgrow="ALWAYS">
          <children>
             <Button fx:id="exitDSC" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchTitleScreen" stylesheets="@PF99Styles.css" text="Back" />
+            <ImageView fx:id="characterImage" fitHeight="330.0" fitWidth="270.0" layoutX="35.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
       <GridPane prefHeight="60.0" prefWidth="640.0">

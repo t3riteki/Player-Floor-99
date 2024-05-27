@@ -22,6 +22,7 @@ public class Main extends Application {
         scene.getStylesheets().add(getClass().getResource("PF99Styles.css").toExternalForm());
         stage.setTitle("PLAYER FLOOR 99");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

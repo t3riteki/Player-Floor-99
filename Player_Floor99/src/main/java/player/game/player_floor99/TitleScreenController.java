@@ -28,6 +28,7 @@ public class TitleScreenController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        GameManager.nextScene = "ch1";
     }
 
     public void switchDialogueScreen(ActionEvent event) throws IOException {

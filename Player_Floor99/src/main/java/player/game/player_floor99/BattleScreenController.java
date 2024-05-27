@@ -2,20 +2,26 @@ package player.game.player_floor99;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class BattleScreenController implements Initializable {
     @FXML
-    public VBox background;
-
+    public VBox battleScreenBackground;
     public Label enmyNameLabel;
     public Label enmyManaLabel;
     public Label enmyHPLabel;
@@ -43,26 +49,30 @@ public class BattleScreenController implements Initializable {
         battle = new BattleHandler(this);
 
         btlDiagLabel.setWrapText(true);
-        battle.battleInit();
+        try {
+            battle.battleInit();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public void Attack(ActionEvent event){
+    public void Attack(ActionEvent event)throws IOException{
         battle.selectAction(c1);
     }
 
-    public void Defend(ActionEvent event){
+    public void Defend(ActionEvent event)throws IOException{
         battle.selectAction(c2);
     }
 
-    public void Skill(ActionEvent event){
+    public void Skill(ActionEvent event)throws IOException{
         battle.selectAction(c3);
     }
 
-    public void Flee(ActionEvent event){
+    public void Flee(ActionEvent event)throws IOException{
         battle.selectAction(c4);
     }
 
-    public void nextTurn (MouseEvent event){
+    public void nextTurn (MouseEvent event)throws IOException{
         battle.selectAction(c5);
     }
 
@@ -88,6 +98,13 @@ public class BattleScreenController implements Initializable {
        enmyNameLabel.setText(battle.enemy.name);
        enmyHPLabel.setText("HP: " + HP);
        enmyManaLabel.setText("Mana: " + Mana);
+    }
 
+    public void switchToDialogue() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("DialogueScreen.fxml"));
+        Stage stage = (Stage)((Node)battleScreenBackground).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }

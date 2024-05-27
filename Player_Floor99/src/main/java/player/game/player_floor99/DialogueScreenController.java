@@ -49,9 +49,6 @@ public class DialogueScreenController implements Initializable {
         story.gameInit();
     }
 
-    public void startGame() throws IOException {
-        story.gameInit();
-    }
 
     public void hideChoiceBox(){
         choice1.setVisible(false);
@@ -119,8 +116,5 @@ public class DialogueScreenController implements Initializable {
         }
     }
 
-    public StoryHandler getStoryHandler(){
-        return story;
-    }
 }
 

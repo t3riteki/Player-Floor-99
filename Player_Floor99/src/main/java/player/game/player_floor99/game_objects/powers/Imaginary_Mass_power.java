@@ -5,6 +5,6 @@ public class Imaginary_Mass_power extends Power{
         attackDialogue = "dashes in to punch with the imaginary weight of a mountain!";
         defendDialogue = "blocks changing his arms' imaginary mass!";
         skillDialogue = "concentrating a large portion of their karma into their hands, they clap...";
-        fleeDialogue = "fear is the mind killer. I must not flee";
+        fleeDialogue = "Fear is the mind killer. I must not flee";
     }
 }
