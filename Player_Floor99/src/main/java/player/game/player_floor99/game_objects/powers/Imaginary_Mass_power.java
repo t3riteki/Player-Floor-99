@@ -2,9 +2,9 @@ package player.game.player_floor99.game_objects.powers;
 
 public class Imaginary_Mass_power extends Power{
     public Imaginary_Mass_power (){
-        attackDialogue = "You throw a Rock with the imaginary mass of several houses!";
-        defendDialogue = "You try to guide a punch away by creating gravity using Imaginary Mass!";
-        skillDialogue = "You dash in";
-        fleeDialogue = "";
+        attackDialogue = "dashes in to punch with the imaginary weight of a mountain!";
+        defendDialogue = "blocks changing his arms' imaginary mass!";
+        skillDialogue = "concentrating a large portion of their karma into their hands, they clap...";
+        fleeDialogue = "fear is the mind killer. I must not flee";
     }
 }

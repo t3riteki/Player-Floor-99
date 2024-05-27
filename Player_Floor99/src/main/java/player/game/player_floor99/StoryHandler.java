@@ -1,12 +1,9 @@
 package player.game.player_floor99;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import player.game.player_floor99.game_objects.Player;
-import player.game.player_floor99.game_objects.npc.NPC;
+import player.game.player_floor99.game_objects.npc.Player;
+import player.game.player_floor99.game_objects.npc.Entity;
 import player.game.player_floor99.game_objects.npc.Seol_Jin_npc;
 
 import java.io.IOException;
@@ -22,7 +19,7 @@ public class StoryHandler {
     }
 
     Player user = new Player();
-    public NPC enemy;// = Seol jin
+    public Entity enemy;// = Seol jin
 
     String currentSpeaker,currentDialogue;
     String[][] Dialogue;

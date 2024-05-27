@@ -14,10 +14,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import player.game.player_floor99.game_objects.npc.NPC;
+import player.game.player_floor99.game_objects.npc.Entity;
 
 import java.io.IOException;
 import java.net.URL;
@@ -41,7 +40,7 @@ public class DialogueScreenController implements Initializable {
     public boolean disableNextDialogue;
     public int diagVal1, diagVal2;
 
-    public NPC enemy;
+    public Entity enemy;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -1,9 +1,9 @@
 package player.game.player_floor99;
 
-import player.game.player_floor99.game_objects.npc.NPC;
+import player.game.player_floor99.game_objects.npc.Entity;
 
 public class GameManager {
-    public static NPC currentEnemy;
+    public static Entity currentEnemy;
     public static String nextScene;
 
     public static void setNextSceneScene(String scene){
@@ -12,10 +12,10 @@ public class GameManager {
     public static String getCurrentScene(){
         return nextScene;
     }
-    public static void setCurrentEnemy(NPC enemy){
+    public static void setCurrentEnemy(Entity enemy){
         currentEnemy = enemy;
     }
-    public static NPC getCurrentEnemy(){
+    public static Entity getCurrentEnemy(){
         return currentEnemy;
     }
 }

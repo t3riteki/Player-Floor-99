@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import java.net.URL;
@@ -35,7 +36,7 @@ public class BattleScreenController implements Initializable {
 
     BattleHandler battle;
 
-    String c1, c2, c3, c4;
+    String c1, c2, c3, c4, c5;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -61,6 +62,10 @@ public class BattleScreenController implements Initializable {
         battle.selectAction(c4);
     }
 
+    public void nextTurn (MouseEvent event){
+        battle.selectAction(c5);
+    }
+
     public void updateBattleDialogue(String battleText){
         btlDiagLabel.setText(battleText);
     }
@@ -71,11 +76,12 @@ public class BattleScreenController implements Initializable {
        protagManaLabel.setText("Mana: " + Mana);
     }
 
-    public void updateCases(String c1, String c2, String c3, String c4){
+    public void updateCases(String c1, String c2, String c3, String c4, String c5){
         this.c1 = c1;
         this.c2 = c2;
         this.c3 = c3;
         this.c4 = c4;
+        this.c5 = c5;
     }
 
     public void updateEnemyStatus(int HP, int Mana){
@@ -83,8 +89,5 @@ public class BattleScreenController implements Initializable {
        enmyHPLabel.setText("HP: " + HP);
        enmyManaLabel.setText("Mana: " + Mana);
 
-        System.out.println(battle.enemy.name);
-        System.out.println(battle.enemyHP);
-        System.out.println(battle.enemyMana);
     }
 }

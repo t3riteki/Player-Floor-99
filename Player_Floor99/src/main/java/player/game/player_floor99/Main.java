@@ -9,7 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import player.game.player_floor99.game_objects.npc.NPC;
 
 import java.io.IOException;
 

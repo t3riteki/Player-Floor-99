@@ -1,6 +1,8 @@
 package player.game.player_floor99.game_objects.npc;
 
-public class Nabi_npc extends NPC {
+import player.game.player_floor99.game_objects.powers.Malice_power;
+
+public class Nabi_npc extends Entity {
     public Nabi_npc() {
         name = "Nabi";
         Luck = 10;
@@ -9,7 +11,8 @@ public class Nabi_npc extends NPC {
         Strength = 17;
         Defense = 12;
         Agility = 16;
-        Mana = 150;
+        Karma = 150;
+        power = new Malice_power();
     }
 
 }

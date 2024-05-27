@@ -38,7 +38,7 @@
                   <Button fx:id="fleeButton" mnemonicParsing="false" onAction="#Flee" prefHeight="77.0" prefWidth="163.0" text="Flee" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <Label fx:id="btlDiagLabel" alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="152.0" prefWidth="382.0" text="Battle Dialogue" GridPane.columnIndex="1">
+            <Label fx:id="btlDiagLabel" alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" onMouseClicked="#nextTurn" prefHeight="152.0" prefWidth="382.0" text="Battle Dialogue" GridPane.columnIndex="1">
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </padding>
