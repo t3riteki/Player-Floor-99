@@ -1,6 +1,6 @@
 package player.game.player_floor99.game_objects.npc;
 
-import player.game.player_floor99.game_objects.powers.Monster_Eater_Power;
+import player.game.player_floor99.game_objects.powers.Vivian_power;
 
 public class Lancelot_npc extends Entity {
     public Lancelot_npc() {
@@ -12,6 +12,6 @@ public class Lancelot_npc extends Entity {
         Defense = 35;
         Agility = 14;
         Karma = 1000;
-        power = new Monster_Eater_Power();
+        power = new Vivian_power();
     }
 }

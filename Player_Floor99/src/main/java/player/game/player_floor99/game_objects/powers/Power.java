@@ -2,11 +2,11 @@ package player.game.player_floor99.game_objects.powers;
 
 import player.game.player_floor99.game_objects.npc.Entity;
 
-public abstract class Power {
+public class Power {
     public String attackDialogue, defendDialogue, skillDialogue, fleeDialogue;
-    public Entity user;
-    public void applyPassive(){
+    public void applyPassive(Entity user){
     }
-    public void applyTraits(){
+    public void applyPassive(Entity user, int percentHP){
     }
+
 }

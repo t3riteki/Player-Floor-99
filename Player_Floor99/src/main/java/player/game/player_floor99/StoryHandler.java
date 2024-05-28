@@ -125,7 +125,8 @@ public class StoryHandler {
     }
 
     public void exitProgram(){
-        System.exit(0);
+        stage = (Stage) DSC.dialogueScreenBackground.getScene().getWindow();
+        stage.close();
     }
 
     /*-----------------Story Methods-------------------*/
