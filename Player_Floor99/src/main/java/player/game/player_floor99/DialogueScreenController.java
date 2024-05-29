@@ -1,7 +1,3 @@
-/*
-Holds methods for choices
-*/
-
 package player.game.player_floor99;
 
 import javafx.event.ActionEvent;
@@ -13,7 +9,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import player.game.player_floor99.game_objects.npc.Entity;
@@ -29,12 +28,18 @@ public class DialogueScreenController implements Initializable {
     public Label characterNameLabel;
     public Label characterDialogueLabel;
     public VBox dialogueScreenBackground;
+    public ImageView characterImage;
+    public Pane dialoguePane;
 
     private Stage stage;
     private Scene scene;
     private Parent root;
 
     public StoryHandler story;
+    public Image SeolJin = new Image(getClass().getResourceAsStream("Seol-Jin.jpg"));
+    public Image Yama = new Image(getClass().getResourceAsStream("Yama.png"));
+    public Image Nabi = new Image(getClass().getResourceAsStream("Nabi.jpg"));
+    public Image Lancelot = new Image(getClass().getResourceAsStream("Lancelot.jpg"));
 
     public String c1="", c2="", c3="";
     public boolean disableNextDialogue;
@@ -54,6 +59,7 @@ public class DialogueScreenController implements Initializable {
         choice1.setVisible(false);
         choice2.setVisible(false);
     }
+
     public void showChoiceBox(){
         choice1.setVisible(true);
         choice2.setVisible(true);
@@ -93,6 +99,17 @@ public class DialogueScreenController implements Initializable {
         characterDialogueLabel.setText(text);
     }
 
+    public void updateCharacterImage(String name){
+        System.out.println(name);
+        switch (name){
+            case "Seol-Jin":characterImage.setImage(SeolJin);break;
+            case "Yama":characterImage.setImage(Yama);break;
+            case "Ryujin":characterImage.setImage(Yama);break;
+            case "Nabi":characterImage.setImage(Nabi);break;
+            case "Lancelot":characterImage.setImage(Lancelot);break;
+        }
+    }
+
     public void choose1(ActionEvent event) throws IOException {
         story.selectPos(c1);
         story.dialIndex+=diagVal1;
@@ -111,10 +128,10 @@ public class DialogueScreenController implements Initializable {
         if (!disableNextDialogue) {
             updateCharacterName(story.nextSpeaker(story.Dialogue));
             updateCharacterDialogue(story.nextDialogue(story.Dialogue));
+            updateCharacterImage(story.nextSpeaker(story.Dialogue));
             story.dialIndex++;
             story.checkDialogue(story.Dialogue);
         }
     }
-
 }
 

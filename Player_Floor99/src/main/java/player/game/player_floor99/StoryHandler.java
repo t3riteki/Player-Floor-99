@@ -10,8 +10,6 @@ import java.io.IOException;
 public class StoryHandler {
     private DialogueScreenController DSC;
     private Stage stage;
-    private Scene scene;
-    private Parent root;
 
     public StoryHandler(DialogueScreenController dController) {
         this.DSC = dController;

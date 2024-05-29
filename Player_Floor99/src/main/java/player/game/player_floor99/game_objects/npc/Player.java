@@ -15,5 +15,4 @@ public class Player extends Entity{
         Karma = 200;
         power = new Imaginary_Mass_power();
     }
-
 }

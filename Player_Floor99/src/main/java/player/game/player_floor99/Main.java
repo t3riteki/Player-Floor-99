@@ -17,7 +17,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         Font.loadFont(getClass().getResource("/player/game/player_floor99/Fonts/BlueScreen.ttf").toExternalForm(),10);
-        Parent root = FXMLLoader.load(getClass().getResource("TitleScreen.fxml"));
+        Parent root = FXMLLoader.load(this.getClass().getResource("TitleScreen.fxml"));
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("PF99Styles.css").toExternalForm());
         stage.setTitle("PLAYER FLOOR 99");

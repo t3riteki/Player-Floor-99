@@ -43,13 +43,19 @@
 
 
 /*---------Dialogue Screen----------*/
-
 #dialogueScreenBackground{
     -fx-background-color: radial-gradient(radius 1000%, black, white);
 }
 
-#exitDSC, #characterDialogueLabel, #nextDialogue, #prevDialogue{
+#exitDSC, #nextDialogue, #prevDialogue{
     -fx-background-color: transparent;
+    -fx-border-radius: 5;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+}
+
+#characterDialogueLabel{
+    -fx-background-color: rgba(0,0,0,0.45);
     -fx-border-radius: 5;
     -fx-border-color: white;
     -fx-text-fill: white;
