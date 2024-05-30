@@ -16,12 +16,13 @@
       <Pane prefHeight="126.0" prefWidth="640.0" stylesheets="@PF99Styles.css" VBox.vgrow="ALWAYS">
          <children>
             <Button fx:id="exitDSC" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchTitleScreen" stylesheets="@PF99Styles.css" text="Back" />
-            <ImageView fx:id="characterImage" fitHeight="300.0" fitWidth="204.0" layoutX="36.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="characterImage1" fitHeight="360.0" fitWidth="246.0" layoutX="36.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="characterImage2" fitHeight="360.0" fitWidth="246.0" layoutX="355.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
       <GridPane prefHeight="60.0" prefWidth="640.0">
         <columnConstraints>
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="287.0" minWidth="10.0" prefWidth="285.0" />
+          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="287.0" minWidth="10.0" prefWidth="285.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="394.0" minWidth="10.0" prefWidth="127.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.0" minWidth="10.0" prefWidth="228.0" />
         </columnConstraints>
@@ -30,7 +31,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="characterNameLabel" prefHeight="30.0" prefWidth="274.0" stylesheets="@PF99Styles.css" text="Character Name" textFill="WHITE" GridPane.rowIndex="1">
+            <Label fx:id="characterNameLabel" alignment="BASELINE_LEFT" prefHeight="30.0" prefWidth="274.0" stylesheets="@PF99Styles.css" text="Character Name" textFill="WHITE" GridPane.rowIndex="1">
                <font>
                   <Font size="17.0" />
                </font>
@@ -41,13 +42,17 @@
             <Button fx:id="choice2" mnemonicParsing="false" onAction="#choose2" prefHeight="50.0" prefWidth="204.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets top="3.0" />
-               </GridPane.margin></Button>
+               </GridPane.margin>
+            </Button>
             <Button fx:id="choice1" mnemonicParsing="false" onAction="#choose1" prefHeight="36.0" prefWidth="204.0" GridPane.columnIndex="2">
                <GridPane.margin>
                   <Insets bottom="3.0" />
                </GridPane.margin>
             </Button>
          </children>
+         <padding>
+            <Insets bottom="5.0" />
+         </padding>
       </GridPane>
       <Pane prefHeight="152.0" prefWidth="640.0">
          <children>

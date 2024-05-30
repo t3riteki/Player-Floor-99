@@ -51,7 +51,7 @@ public class StoryHandler {
         }
     }
 
-    public void gameInit() {
+    public void gameInit() throws IOException{
         switch (GameManager.nextScene) {
             case "ch1":
                 chapter1();
@@ -115,6 +115,7 @@ public class StoryHandler {
         DSC.disableNextDialogue = false;
         DSC.updateCharacterName(Dialogue[dialIndex][cnIndex]);
         DSC.updateCharacterDialogue(Dialogue[dialIndex][cdIndex]);
+        DSC.updateCharacterImage(Dialogue[dialIndex][cnIndex]);
         DSC.hideChoiceBox();
         DSC.diagVal1 = 1;
         DSC.diagVal2 = 1;
@@ -122,9 +123,8 @@ public class StoryHandler {
         dialIndex++;
     }
 
-    public void exitProgram(){
-        stage = (Stage) DSC.dialogueScreenBackground.getScene().getWindow();
-        stage.close();
+    public void exitProgram() throws IOException{
+        DSC.switchTitleScreen();
     }
 
     /*-----------------Story Methods-------------------*/
@@ -132,15 +132,15 @@ public class StoryHandler {
     public void chapter1() {
         Dialogue = new String[][]{
                 {"Narrator", "As everyone questions Seol-Jin's worthiness, the battle for the players' representative has begun!"},
-                {"Narrator", "Watching the spectacle of a fight between a boy chosen by the Tower's God and a woman hailed for strength and malice..."},
+                {"Narrator", "Watching the spectacle of a fight between a boy chosen by the Tower's God and a woman hailed for her strength and malice..."},
                 {"Narrator", "The crowd roars as the fight abruptly ends... in a conversation?"},
                 {"Mysterious Person", "It's getting rowdy..."},
                 {"Nabi", "I've taken a liking to you"},
                 {"Seol-Jin", "!"},
                 {"Nabi", "I'll be counting on you Seol-jin. Flatten Arthur's nose for me!"},
-                {"Narrator", "As Nabi declares her defeat and respect, she places her trust in Seol-jin - the Small Guild Union representative, Ryujin, also declared his support for him..."},
+                {"Narrator", "As Nabi declares her defeat and respect, she places her trust in Seol-jin - the Small Guild Union representative, Ryujin, also declared his support for him. However..."},
                 {"Ryujin", "Alright you damn cowards, has the boy proven himself enough?"},
-                {"Narrator", "But a lingering unease, can prove to be a detriment in turbulent times."},
+                {"Narrator", "A lingering unease, can prove to be a detriment in turbulent times."},
                 {"Ryujin", "If you're all satisfied, then I, as the representative of the Small Guild Union, place my trust in the warrior, Seol-Jin."},
                 {"Ryujin", "Does anyone still object?"},
         };
@@ -186,7 +186,7 @@ public class StoryHandler {
                 {user.name, "Behave yourself, I concede. I acknowledge your strength."},
                 {user.name, "I guess I'll be placing my bets on you as well."},
                 {"Lancelot","So you're that dumb God's vessel?"},
-                {"Seol-jin","That karma!"},
+                {"Seol-Jin","That karma!"},
                 {"Lancelot","You look pretty weak...?"},
                 {user.name, "And who are you??"},
                 {"Lancelot", "..."},
@@ -206,7 +206,7 @@ public class StoryHandler {
                 {user.name, "You look down on me boy?"},
                 {"Seol-Jin", "..."},
                 {user.name, "If you don't have the guts to finish me off, then you don't deserve anyone's respect!"},
-                {"Seol-jin", "..."},
+                {"Seol-Jin", "..."},
                 {"Nabi", "You damn geezer!, if you still aren't satisfied..."},
                 {"Nabi", "I'll be the one beating the snot out of you!"},
         };
@@ -222,9 +222,9 @@ public class StoryHandler {
                 {user.name, "fine, I yield. I didn't know you felt so strongly."},
                 {"Seol-Jin", "Nabi, are you alright?"},
                 {user.name, "I guess I'll be placing my bets on you as well Seol-jin"},
-                {"Seol-jin", "!"},
+                {"Seol-Jin", "!"},
                 {"Lancelot", "So you're that damn God's vessel?"},
-                {"Seol-jin", "That karma!"},
+                {"Seol-Jin", "That karma!"},
                 {"Lancelot", "You look pretty weak...?"},
                 {user.name, "And who are you??"},
                 {"Lancelot", "..."},
@@ -246,7 +246,7 @@ public class StoryHandler {
                 {user.name, "Shit!"},
                 {"Narrator", "The sound of flesh ripping fills the battlefield"},
                 {"Narrator", "The cold starts to envelope your body"},
-                {"Seol-jin", "YAMAAAAAA!"},
+                {"Seol-Jin", "YAMAAAAAA!"},
                 {user.name, "That karma... merlin"}
         };
         initStoryNode();

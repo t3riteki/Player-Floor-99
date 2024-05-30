@@ -44,11 +44,14 @@
 
 /*---------Dialogue Screen----------*/
 #dialogueScreenBackground{
-    -fx-background-color: radial-gradient(radius 1000%, black, white);
+    -fx-background-image: url("BG_DIA.png");
+    -fx-background-size: stretch;
+    -fx-background-repeat: no-repeat;
 }
 
 #exitDSC, #nextDialogue, #prevDialogue{
-    -fx-background-color: transparent;
+    -fx-background-color: rgba(0,0,0,0.45);
+    -fx-background-radius: 5;
     -fx-border-radius: 5;
     -fx-border-color: white;
     -fx-text-fill: white;
@@ -56,27 +59,31 @@
 
 #characterDialogueLabel{
     -fx-background-color: rgba(0,0,0,0.45);
+    -fx-background-radius: 5;
     -fx-border-radius: 5;
     -fx-border-color: white;
     -fx-text-fill: white;
 }
 
 #choice1, #choice2{
-    -fx-background-color: linear-gradient(from 20% 20% to 100% 100%,black,transparent);
+    -fx-background-color: linear-gradient(from 20% 20% to 100% 100%, rgba(0,0,0,0.45),transparent);
     -fx-text-fill: white;
     -fx-background-radius: 10;
 }
 
 #choice1:hover, #choice2:hover{
-    -fx-background-color: linear-gradient(from 20% 20% to 100% 100%,grey,transparent);
+    -fx-background-color: linear-gradient(from 20% 20% to 100% 100%, rgba(128, 128, 128, 0.45),transparent);
+    -fx-background-radius: 5;
 }
 
  #exitDSC:hover, #nextDialogue:hover, #prevDialogue:hover{
-     -fx-background-color: grey;
+    -fx-background-color: rgba(128, 128, 128, 0.45);
     -fx-border-color: #b49dcb;
+     -fx-background-radius: 5;
 }
 
 #characterNameLabel{
+    -fx-text-fill: rgba(0,0,0,0.85);
     -fx-font-size: 20px;
 }
 
@@ -86,11 +93,14 @@
 
 /*--------Battle Screen---------*/
 #battleScreenBackground{
-    -fx-background-color: radial-gradient(radius 1000%, black, white);
+    -fx-background-image: url("BG_BATT.jpg");
+    -fx-background-size: stretch;
+    -fx-background-repeat: no-repeat;
 }
 
 #atkButton,#defButton,#sklButton,#fleeButton{
-    -fx-background-color: transparent;
+    -fx-background-color: rgba(0,0,0,0.45);;
+    -fx-background-radius: 5;
     -fx-text-fill: white;
     -fx-border-radius: 5;
     -fx-border-color: white ;
@@ -98,20 +108,24 @@
 
 #atkButton:hover,#defButton:hover,#sklButton:hover,#fleeButton:hover{
     -fx-background-color: grey;
+    -fx-background-radius: 5;
     -fx-border-color: #b49dcb;
 }
 
 #actionBar,#protagStatus,#enmyStatus{
+    -fx-background-color: rgba(0,0,0,0.45);
     -fx-border-color: white;
+    -fx-background-radius: 5;
 }
 
 #btlDiagLabel,#protagHPLabel,#protagManaLabel,#enmyHPLabel,#enmyManaLabel{
-    -fx-background-color: transparent;
+    -fx-background-radius: 5;
     -fx-border-radius: 5;
     -fx-border-color: white;
     -fx-text-fill: white;
 }
 #protagNameLabel,#enmyNameLabel{
     -fx-text-fill: white;
+    -fx-background-radius: 5;
     -fx-font-size: 15;
 }

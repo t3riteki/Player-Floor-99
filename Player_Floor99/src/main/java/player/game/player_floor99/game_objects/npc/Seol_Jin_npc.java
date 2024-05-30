@@ -5,7 +5,7 @@ import player.game.player_floor99.game_objects.powers.Excalibur_power;
 public class Seol_Jin_npc extends Entity {
     public Seol_Jin_npc (){
          name = "Seol-jin";
-         Luck = 30;
+         Luck = 4;
          Attack = this.calcAttack();
          HP = this.calcHP();
          Strength = 17;

@@ -5,7 +5,7 @@ import player.game.player_floor99.game_objects.powers.Vivian_power;
 public class Lancelot_npc extends Entity {
     public Lancelot_npc() {
         name = "Lancelot";
-        Luck = 30;
+        Luck = 2;
         Attack = this.calcAttack();
         HP = this.calcHP();
         Strength = 20;

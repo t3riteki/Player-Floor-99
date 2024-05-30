@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -35,12 +36,16 @@ public class BattleScreenController implements Initializable {
     public Button fleeButton;
     public Button atkButton;
 
-    public ImageView enmyImageView;
+    public ImageView enemyImageView;
     public GridPane actionBar;
     public GridPane enmyStatus;
     public GridPane protagStatus;
 
     BattleHandler battle;
+
+    public Image SeolJin = new Image(getClass().getResourceAsStream("SEOL FIGHT.png"));
+    public Image Nabi = new Image(getClass().getResourceAsStream("NABI FIGHT.png"));
+    public Image Lancelot = new Image(getClass().getResourceAsStream("LANCELOT FIGHT.png"));
 
     String c1, c2, c3, c4, c5;
 
@@ -84,6 +89,15 @@ public class BattleScreenController implements Initializable {
        protagNameLabel.setText(battle.user.name);
        protagHPLabel.setText("HP: " + HP);
        protagManaLabel.setText("Mana: " + Mana);
+    }
+
+    public void updateEnemyImage(String name){
+        System.out.println(name);
+        switch (name){
+            case "Seol-jin":enemyImageView.setImage(SeolJin);break;
+            case "Nabi":enemyImageView.setImage(Nabi);break;
+            case "Lancelot":enemyImageView.setImage(Lancelot);break;
+        }
     }
 
     public void updateCases(String c1, String c2, String c3, String c4, String c5){

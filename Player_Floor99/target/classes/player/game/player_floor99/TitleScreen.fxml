@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane fx:id="titleScreenBackground" alignment="CENTER" prefHeight="506.0" prefWidth="640.0" stylesheets="@PF99Styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="player.game.player_floor99.TitleScreenController">
+<GridPane fx:id="titleScreenBackground" alignment="CENTER" prefHeight="480.0" prefWidth="640.0" stylesheets="@PF99Styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="player.game.player_floor99.TitleScreenController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="370.66668701171875" minWidth="10.0" prefWidth="20.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="461.0" minWidth="10.0" prefWidth="452.0" />

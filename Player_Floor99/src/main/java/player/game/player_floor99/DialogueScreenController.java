@@ -28,7 +28,8 @@ public class DialogueScreenController implements Initializable {
     public Label characterNameLabel;
     public Label characterDialogueLabel;
     public VBox dialogueScreenBackground;
-    public ImageView characterImage;
+    public ImageView characterImage1;
+    public ImageView characterImage2;
     public Pane dialoguePane;
 
     private Stage stage;
@@ -36,10 +37,11 @@ public class DialogueScreenController implements Initializable {
     private Parent root;
 
     public StoryHandler story;
-    public Image SeolJin = new Image(getClass().getResourceAsStream("Seol-Jin.jpg"));
-    public Image Yama = new Image(getClass().getResourceAsStream("Yama.png"));
-    public Image Nabi = new Image(getClass().getResourceAsStream("Nabi.jpg"));
-    public Image Lancelot = new Image(getClass().getResourceAsStream("Lancelot.jpg"));
+    public Image SeolJin = new Image(getClass().getResourceAsStream("SEOL DIA.png"));
+    public Image Yama = new Image(getClass().getResourceAsStream("YAMA DIA.png"));
+    public Image Nabi = new Image(getClass().getResourceAsStream("NABI DIA.png"));
+    public Image Lancelot = new Image(getClass().getResourceAsStream("LANCELOT DIA.png"));
+    public Image Ryujin = new Image(getClass().getResourceAsStream("RYUJIN DIA.png"));
 
     public String c1="", c2="", c3="";
     public boolean disableNextDialogue;
@@ -51,7 +53,11 @@ public class DialogueScreenController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         story = new StoryHandler(this);
         characterDialogueLabel.setWrapText(true);
-        story.gameInit();
+        try {
+            story.gameInit();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
@@ -68,6 +74,13 @@ public class DialogueScreenController implements Initializable {
     public void switchTitleScreen(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("TitleScreen.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchTitleScreen() throws IOException {
+        root = FXMLLoader.load(getClass().getResource("TitleScreen.fxml"));
+        stage = (Stage)((Node)dialogueScreenBackground).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -102,11 +115,13 @@ public class DialogueScreenController implements Initializable {
     public void updateCharacterImage(String name){
         System.out.println(name);
         switch (name){
-            case "Seol-Jin":characterImage.setImage(SeolJin);break;
-            case "Yama":characterImage.setImage(Yama);break;
-            case "Ryujin":characterImage.setImage(Yama);break;
-            case "Nabi":characterImage.setImage(Nabi);break;
-            case "Lancelot":characterImage.setImage(Lancelot);break;
+            case "Seol-Jin":characterImage1.setImage(SeolJin);break;
+            case "Yama":characterImage1.setImage(Yama);break;
+            case "Ryujin":characterImage1.setImage(Ryujin);break;
+            case "Nabi":characterImage1.setImage(Nabi);break;
+            case "Lancelot":characterImage1.setImage(Lancelot);break;
+            case "Mysterious Person": characterImage1.setImage(Yama);break;
+            case "Narrator": characterImage1.setImage(null);break;
         }
     }
 

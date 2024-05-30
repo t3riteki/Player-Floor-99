@@ -6,10 +6,10 @@ import player.game.player_floor99.game_objects.powers.Power;
 public class Player extends Entity{
     public Player(){
         name = "Yama";
-        Luck = 6;
+        Luck = 4;
         Attack = this.calcAttack();
         HP = this.calcHP();
-        Strength = 15;
+        Strength = 18;
         Defense = 15;
         Agility = 15;
         Karma = 200;

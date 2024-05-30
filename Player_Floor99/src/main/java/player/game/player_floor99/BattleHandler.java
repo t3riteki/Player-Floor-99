@@ -27,6 +27,8 @@ public class BattleHandler {
     /*-----------------Initializing Methods-------------------*/
 
     public void battleInit()throws IOException{
+        System.out.println("Battle Init");
+        BSC.updateEnemyImage(enemy.name);
 
         playerHP = user.calcHP();
         playerHPMax = user.calcHP();
@@ -59,17 +61,18 @@ public class BattleHandler {
     }
 
     public void checkFirstTurn()throws IOException{
+        System.out.println("CFTurn");
         if (user.Agility > enemy.Agility){
             currentTurn = "Player";
         }
         else if (user.Agility < enemy.Agility){
             currentTurn = "Enemy";
         }
-
         switchTurn();
     }
 
     public void switchTurn () throws IOException{
+        System.out.println("switch Turn");
         switch (currentTurn) {
             case "Player":
                 PlayerTurn();
@@ -81,6 +84,7 @@ public class BattleHandler {
     }
 
     public void PlayerTurn() {
+        System.out.println("PTurn");
         enemy.power.applyPassive(enemy);
         nextTurn = "Enemy";
         BSC.updateBattleDialogue("Your Turn");
@@ -88,6 +92,7 @@ public class BattleHandler {
     }
 
     public void selectAction(String action) throws IOException{
+        System.out.println("Sel act");
         switch(action){
             case"Attack":PlayerAttack();break;
             case"Defend":PlayerDefend();break;
@@ -98,6 +103,8 @@ public class BattleHandler {
     }
 
     public void finishTurn() throws IOException {
+        System.out.println("Fturn");
+
         user.setHP(playerHP);
         user.setKarma(playerKarma);
         user.setAttack(playerAttack);
@@ -109,12 +116,13 @@ public class BattleHandler {
         enemy.setKarma(enemyKarma);
         user.power.applyPassive(enemy);
         user.power.applyPassive(enemy,enemyHPmax);
+        BSC.updateCases("","","","", "nextTurn");
 
         checkWinner();
-        BSC.updateCases("","","","", "nextTurn");
     }
 
     public void nextTurn()throws IOException{
+        System.out.println("nxtturn");
         switch (nextTurn) {
             case "Player":
                 PlayerTurn();
@@ -126,14 +134,23 @@ public class BattleHandler {
     }
 
     public void EnemyTurn ()throws IOException{
+        System.out.println("ETurn");
         user.power.applyPassive(user);
         nextTurn = "Player";
-        BSC.updateCases("","","","","");
-        NPCAttack();
+        BSC.updateCases("","","","","nextTurn");
+        String action = Integer.toString((int) Math.round(Math.random()*4));
+        switch (action){
+            case"1": NPCAttack();break;
+            case"2": NPCDefend();break;
+            case"3": NPCSkill();break;
+            case"4": NPCFlee();break;
+        }
     }
 
     public void checkWinner() throws IOException {
-        if (playerHP < 0) {
+        System.out.println("check winner");
+        if (playerHP <= 0) {
+            System.out.println(enemy.name+" wins!");
             switch(enemy.name){
                 case"Seol-jin": GameManager.setSeolJinDefeated(false);break;
                 case"Nabi": GameManager.setNabiDefeated(false);break;
@@ -142,8 +159,8 @@ public class BattleHandler {
             BSC.switchToDialogue();
         }
 
-        if (enemyHP < 0) {
-            System.out.println("You win");
+        if (enemyHP <= 0) {
+            System.out.println(user.name+" wins!");
             switch(enemy.name) {
                 case "Seol-jin":
                     GameManager.setSeolJinDefeated(true);break;
@@ -164,21 +181,25 @@ public class BattleHandler {
 
     private void PlayerAttack() throws IOException{
         playerAtkDamage = getAttackDamage(playerAttack, enemyDamageReduction);
+        System.out.println("PAttack");
         if (enemyDefended) {
+            System.out.println("EyesDef");
             enemyHP -= (int)(playerAtkDamage*0.65);
+            enemyAttack+= (int)(enemyAttack*0.125);
+            enemyDefended = false;
 
             BSC.updateBattleDialogue(user.name+" "+user.power.attackDialogue);
             BSC.updatePlayerStatus(playerHP, playerKarma);
             BSC.updateEnemyStatus(enemyHP, enemyKarma);
 
-            enemyAttack+= (int)(enemyAttack*0.125);
-            enemyDefended = false;
             System.out.println(playerAtkDamage);
             finishTurn();
-        }else {
+        }
+        else {
             enemyHP -= playerAtkDamage;
+            System.out.println("EnoDef");
 
-            BSC.updateBattleDialogue(user.name + " " + user.power.attackDialogue);
+            BSC.updateBattleDialogue(user.name+" "+user.power.attackDialogue);
             BSC.updatePlayerStatus(playerHP, playerKarma);
             BSC.updateEnemyStatus(enemyHP, enemyKarma);
 
@@ -189,31 +210,73 @@ public class BattleHandler {
 
     private void PlayerDefend() throws IOException{
         playerDefend = true;
+        System.out.println("PDef");
         BSC.updateBattleDialogue(user.name+" "+user.power.defendDialogue);
         finishTurn();
     }
 
     private void PlayerSkill() throws IOException{
         playerAtkDamage = getAttackDamage(playerAttack, enemyDamageReduction);
-        int chance = (int) Math.round((Math.random()*10));
+        int chance = (int) Math.floor((Math.random()*10)+1);
         int AtkDamage;
-        if (user.Luck >= chance){
-            AtkDamage = (int) (playerAtkDamage * (((user.getStrength() + user.getAgility())/1.5)/10));
-            enemyHP -= AtkDamage;
-            playerKarma -= (int)(AtkDamage / 4);
-        } else {
-            AtkDamage = playerAtkDamage * (((user.getStrength() + user.getAgility())/2)/10);
-            enemyHP -= AtkDamage;
-            playerKarma -= (int)(AtkDamage / 3);
-        }
+        System.out.println(chance);
 
-        BSC.updateBattleDialogue(user.name + " " + user.power.skillDialogue);
-        BSC.updatePlayerStatus(playerHP, playerKarma);
-        BSC.updateEnemyStatus(enemyHP, enemyKarma);
-        finishTurn();
+        if (user.Luck >= chance){
+            AtkDamage = (int) (playerAtkDamage * (((user.getStrength() + user.getAgility())/5)/10)+1);
+            System.out.println("PinChance");
+            if (enemyDefended) {
+                System.out.println("EyesDef");
+                enemyHP -= (int)(AtkDamage*0.65);
+                enemyAttack+= (int)(enemyAttack*0.125);
+                playerKarma -= (int)Math.round(AtkDamage / 4);
+                enemyDefended = false;
+
+                BSC.updateBattleDialogue(user.name + " " + user.power.skillDialogue);
+                BSC.updatePlayerStatus(playerHP, playerKarma);
+                BSC.updateEnemyStatus(enemyHP, enemyKarma);
+                finishTurn();
+            }
+            else {
+                enemyHP -= AtkDamage;
+                playerKarma -= (int)Math.round(AtkDamage / 4);
+                System.out.println("EnoDef");
+
+                BSC.updateBattleDialogue(user.name + " " + user.power.skillDialogue);
+                BSC.updatePlayerStatus(playerHP, playerKarma);
+                BSC.updateEnemyStatus(enemyHP, enemyKarma);
+                finishTurn();
+            }
+
+        } else {
+            AtkDamage = playerAtkDamage * (int)((((user.getStrength() + user.getAgility())/5.5)/10)+1);
+            System.out.println("PoutChance");
+            if (enemyDefended) {
+                System.out.println("EyesDef");
+                enemyHP -= (int)(AtkDamage*0.65);
+                enemyAttack+= (int)(enemyAttack*0.125);
+                playerKarma -= (int)Math.round(AtkDamage / 3);
+                enemyDefended = false;
+
+                BSC.updateBattleDialogue(user.name + " " + user.power.skillDialogue);
+                BSC.updatePlayerStatus(playerHP, playerKarma);
+                BSC.updateEnemyStatus(enemyHP, enemyKarma);
+                finishTurn();
+            }
+            else {
+                System.out.println("EnoDef");
+                enemyHP -= AtkDamage;
+                playerKarma -= (int)Math.round(AtkDamage / 3);
+
+                BSC.updateBattleDialogue(user.name + " " + user.power.skillDialogue);
+                BSC.updatePlayerStatus(playerHP, playerKarma);
+                BSC.updateEnemyStatus(enemyHP, enemyKarma);
+                finishTurn();
+            }
+        }
     }
 
     private void PlayerFlee() throws IOException{
+        System.out.println("Pflee");
         BSC.updateBattleDialogue(user.power.fleeDialogue);
         BSC.updatePlayerStatus(playerHP, playerKarma);
         BSC.updateEnemyStatus(enemyHP, enemyKarma);
@@ -221,19 +284,25 @@ public class BattleHandler {
     }
 
     private void NPCAttack() throws IOException{
+        System.out.println("EAttack");
         enemyAtkDamage = getAttackDamage(enemyAttack, playerDamageReduction);
-        if (playerDefend) {
-            playerHP-= (int)(enemyAtkDamage*0.5);
 
-            BSC.updateBattleDialogue(enemy.name+" "+enemy.power.attackDialogue);
+        if (playerDefend) {
+            System.out.println("PyesDef");
+            playerHP-= (int)(enemyAtkDamage*0.65);
+            playerAttack += (int)(playerAttack*0.125);
+            playerDefend = false;
+
+            BSC.updateBattleDialogue(enemy.name + " " + enemy.power.attackDialogue);
             BSC.updatePlayerStatus(playerHP, playerKarma);
             BSC.updateEnemyStatus(enemyHP, enemyKarma);
 
-            playerAttack += (int)(playerAttack*0.125);
-            playerDefend = false;
             System.out.println(enemyAtkDamage);
             finishTurn();
-        } else {
+        }
+
+        else {
+            System.out.println("PnoDef");
             playerHP -= enemyAtkDamage;
 
             BSC.updateBattleDialogue(enemy.name + " " + enemy.power.attackDialogue);
@@ -246,32 +315,84 @@ public class BattleHandler {
     }
 
     private void NPCDefend() throws IOException{
+        System.out.println("EDef");
         enemyDefended = true;
         BSC.updateBattleDialogue(enemy.name+" "+enemy.power.defendDialogue);
         finishTurn();
     }
 
     private void NPCSkill() throws IOException{
+        System.out.println("ESkill");
         enemyAtkDamage = getAttackDamage(enemyAttack, playerDamageReduction);
         int chance = (int) Math.round((Math.random()*10));
         int AtkDamage;
+
+        System.out.println(chance);
+
         if (enemy.Luck >= chance){
             AtkDamage = (int) (enemyAtkDamage * (((enemy.getStrength() + enemy.getAgility())/1.5)/10));
-            playerHP -= AtkDamage;
-            enemyKarma -= Math.round(AtkDamage / 4);
+            System.out.println("EinChance");
+            if (playerDefend) {
+                System.out.println("PyesDef");
+                playerHP -= (int)(AtkDamage*0.65);
+                playerAttack+= (int)(playerAttack*0.125);
+                playerDefend = false;
+
+                System.out.println(AtkDamage);
+
+                enemyKarma -= Math.round(AtkDamage/4);
+                BSC.updateBattleDialogue(enemy.name + " " + enemy.power.skillDialogue);
+                BSC.updatePlayerStatus(playerHP, playerKarma);
+                BSC.updateEnemyStatus(enemyHP, enemyKarma);
+                finishTurn();
+            }
+            else {
+                System.out.println("PnoDef");
+                playerHP -= AtkDamage;
+                enemyKarma -= Math.round(AtkDamage/4);
+
+                System.out.println(AtkDamage);
+
+                BSC.updateBattleDialogue(enemy.name + " " + enemy.power.skillDialogue);
+                BSC.updatePlayerStatus(playerHP, playerKarma);
+                BSC.updateEnemyStatus(enemyHP, enemyKarma);
+                finishTurn();
+            }
+
         } else {
             AtkDamage = enemyAtkDamage * (((enemy.getStrength() + enemy.getAgility())/2)/10);
-            enemyHP -= AtkDamage;
-            enemyKarma -= Math.round(AtkDamage / 3);
-        }
+            System.out.println("EoutChance");
+            if (playerDefend) {
+                System.out.println("PyesDef");
+                playerHP -= (int)(AtkDamage*0.65);
+                playerAttack+= (int)(playerAttack*0.125);
+                playerDefend = false;
 
-        BSC.updateBattleDialogue(enemy.name + " " + enemy.power.skillDialogue);
-        BSC.updatePlayerStatus(playerHP, playerKarma);
-        BSC.updateEnemyStatus(enemyHP, enemyKarma);
-        finishTurn();
+                System.out.println(AtkDamage);
+
+                enemyKarma -= Math.round(AtkDamage/3);
+                BSC.updateBattleDialogue(enemy.name + " " + enemy.power.skillDialogue);
+                BSC.updatePlayerStatus(playerHP, playerKarma);
+                BSC.updateEnemyStatus(enemyHP, enemyKarma);
+                finishTurn();
+            }
+            else {
+                System.out.println("PnoDef");
+                playerHP -= AtkDamage;
+                enemyKarma -= Math.round(AtkDamage/3);
+
+                System.out.println(AtkDamage);
+
+                BSC.updateBattleDialogue(enemy.name + " " + enemy.power.skillDialogue);
+                BSC.updatePlayerStatus(playerHP, playerKarma);
+                BSC.updateEnemyStatus(enemyHP, enemyKarma);
+                finishTurn();
+            }
+        }
     }
 
     private void NPCFlee() throws IOException{
+        System.out.println("EFlee");
         BSC.updateBattleDialogue(enemy.power.fleeDialogue);
         BSC.updatePlayerStatus(playerHP, playerKarma);
         BSC.updateEnemyStatus(enemyHP, enemyKarma);
